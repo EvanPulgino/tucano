@@ -1,0 +1,479 @@
+/**
+ *------
+ * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
+ * Tucano implementation : © Evan Pulgino <evan.pulgino@gmail.com>
+ *
+ * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
+ * See http://en.boardgamearena.com/#!doc/Studio for more information.
+ * -----
+ *
+ * tucano.css
+ *
+ * Tucano stylesheet
+ *
+ */
+
+/*
+    This is the CSS stylesheet of your game User Interface.
+    
+    Styles defined on this file will be applied to the HTML elements you define in your
+    HTML template (tucano_tucano.tpl), and to HTML elements you create dynamically
+    (in tucano.js).
+    
+    Usually, you are using CSS to:
+    
+    1°) define the overall layout of your game
+        (ex: place the board on the top left, place player's hand beside, place the deck on the right, ...).
+
+    2°) create your CSS-sprites:
+        All images of your games should be gathered into a small number of image files. Then, using
+        background-image and background-position CSS properties, you create HTML blocks that can 
+        display these images correctly (see example below).
+    
+    3°) ... anything else:
+        It is really easy to add and remove CSS classes dynamically from your Javascript with
+        dojo.addClass and dojo.removeClass. It is also easy to check if an element has a class
+        (dojo.hasClass) or to get all elements with a specific class (dojo.query). This is why,
+        very often, using CSS classes for the logic of your user interface allow you to do complex
+        thing easily.
+        
+        
+     Note: on the production platform, this file will be compressed and comments will be removed.
+           Consequently, don't hesitate to put as many comments as necessary.
+*/
+
+
+/* Note: you must not use any @import directive */
+
+
+/********* You can start writing your CSS below this line: **********/
+html {
+    background-image:url('img/tuc_background.png');
+}
+
+#page-title {
+    background-color: #a5cdbf !important;
+}
+
+#column-zone {
+    width: 175px;
+}
+
+/* Layout */
+
+#main-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 25px;
+    gap:  10px;
+}
+
+#tuc-player-tableaus {
+    display: flex;
+    flex-direction: column;
+    padding-top: 45px;
+}
+
+#deck {
+    padding-top: 45px;
+}
+
+/* Selection Rows */
+.tuc_header_container {
+    padding-bottom: 10px;
+}
+
+.tuc_header_a {
+    background-color: #d67770;
+}
+
+.tuc_header_b {
+    background-color: #80d8ff;
+}
+
+.tuc_header_c {
+    background-color: #cb85b5;
+}
+
+.tuc_column {
+    min-width: 175px;
+}
+
+/* Score Sheet */
+#score-sheet { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.tuc_score_table {
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-color: linen;
+}
+
+.tuc_score_table_empty {
+    border: 0px solid #000 !important;
+    padding: 10px;
+    text-align: center;
+    height: 35px;
+}
+
+.tuc_score_table_header {
+    border: 2px solid #000;
+    padding: 2.75px;
+    text-align: center;
+    background: linen;
+    height: 35px;
+}
+
+.tuc_score_player_cell {
+    border: 2px solid #000;
+    color: #000;
+    padding: 2.75px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.tuc_score_player_name {
+    background: linen;
+    padding: 3.75px;
+    font-weight: 700;
+}
+
+.tuc_acai_color {
+    background-color: rgba(115, 129, 191, 0.7);
+}
+
+.tuc_avocado_color {
+    background-color: rgba(199, 189, 141, 0.7);
+}
+
+.tuc_banana_color {
+    background-color: rgba(248, 233, 99, 0.7);
+}
+
+.tuc_carambola_color {
+    background-color: rgba(197, 217, 92, 0.7);
+}
+
+.tuc_coconut_color {
+    background-color: rgba(234, 170, 99, 0.7);
+}
+
+.tuc_fig_color {
+    background-color: rgba(203, 128, 182, 0.7);
+}
+
+.tuc_lime_color {
+    background-color: rgba(141, 190, 103, 0.7);
+}
+
+.tuc_lychee_color {
+    background-color: rgba(247, 153, 129, 0.7);
+}
+
+.tuc_orange_color {
+    background-color: rgba(249, 201, 105, 0.7);
+}
+
+.tuc_papaya_color {
+    background-color: rgba(250, 172, 108, 0.7);
+}
+
+.tuc_pineapple_color {
+    background-color: rgba(247, 222, 122, 0.7);
+}
+
+.tuc_pomegranate_color {
+    background-color: rgba(235, 117, 96, 0.7);
+}
+
+.tuc_rambutan_color {
+    background-color: rgba(233, 128, 133, 0.7);
+}
+
+.tuc_total_color {
+    background-color: rgba(250, 240, 230, 0.6);
+}
+
+.tuc_icon {
+    display: inline-block;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    margin: 1px;
+    box-shadow: 3px 3px 3px 0 #000000a0;
+    background-image: url('img/icons.png');
+}
+
+.tuc_icon_acai {
+    background-position: 0 0;
+}
+
+.tuc_icon_avocado {
+    background-position: 25% 0;
+}
+
+.tuc_icon_banana {
+    background-position: 50% 0;
+}
+
+.tuc_icon_carambola {
+    background-position: 75% 0;
+}
+
+.tuc_icon_coconut {
+    background-position: 100% 0;
+}
+
+.tuc_icon_fig {
+    background-position: 0 50%;
+}
+
+.tuc_icon_lime {
+    background-position: 25% 50%;
+}
+
+.tuc_icon_lychee {
+    background-position: 50% 50%;
+}
+
+.tuc_icon_orange {
+    background-position: 75% 50%;
+}
+
+.tuc_icon_papaya {
+    background-position: 100% 50%;
+}
+
+.tuc_icon_pineapple {
+    background-position: 0 100%;
+}
+
+.tuc_icon_pomegranate {
+    background-position: 25% 100%;
+}
+
+.tuc_icon_rambutan {
+    background-position: 50% 100%;
+}
+
+.tuc_icon_joker {
+    background-position: 75% 100%;
+}
+
+.tuc_icon_back {
+    background-position: 100% 100%;
+}
+
+.tuc_icon_total {
+    display: inline-block;
+    position: relative;
+    width: 33px;
+    height: 35px;
+    margin: 1px;
+    background-image: url('img/total_icon.png');
+}
+
+/* Cards */
+
+.tuc_card {
+    display: inline-block;
+    position: relative;
+    border-radius: 25px;
+    width: 144px;
+    height: 271.33px;
+    background-image: url('img/cards.png');
+}
+
+.tuc_card_small {
+    display: inline-block;
+    position: relative;
+    border-radius: 12.5px;
+    width: 115px;
+    height: 216.67px;
+    background-image: url('img/cards_small.png');
+}
+
+.tuc_card_acai {
+    background-position: 0 0;
+}
+
+.tuc_card_avocado {
+    background-position: 20% 0;
+}
+
+.tuc_card_banana {
+    background-position: 40% 0;
+}
+
+.tuc_card_carambola {
+    background-position: 60% 0;
+}
+
+.tuc_card_coconut {
+    background-position: 80% 0;
+}
+
+.tuc_card_fig {
+    background-position: 100% 0;
+}
+
+.tuc_card_lime {
+    background-position: 0 50%;
+}
+
+.tuc_card_lychee {
+    background-position: 20% 50%;
+}
+
+.tuc_card_orange {
+    background-position: 40% 50%;
+}
+
+.tuc_card_papaya {
+    background-position: 60% 50%;
+}
+
+.tuc_card_pineapple {
+    background-position: 80% 50%;
+}
+
+.tuc_card_pomegranate {
+    background-position: 100% 50%;
+}
+
+.tuc_card_rambutan {
+    background-position: 0 100%;
+}
+
+.tuc_card_joker {
+    background-position: 20% 100%;
+}
+
+.tuc_card_flip {
+    background-position: 40% 100%;
+}
+
+.tuc_card_gift {
+    background-position: 60% 100%;
+}
+
+.tuc_card_steal {
+    background-position: 80% 100%;
+}
+
+.tuc_card_back {
+    background-position: 100% 100%;
+    box-shadow: 3px 3px 3px 0 #000000a0;
+}
+
+.tuc_tableau_card {
+    box-shadow: 3px 3px 3px 0 #000000a0;
+}
+
+.tuc_custom_card {
+    border-radius: 14.76px;
+    box-shadow: 3px 3px 3px 0 #000000a0;
+}
+
+/* Counters */
+.tuc_counter {
+    background-color: linen;
+    position: absolute;
+    bottom: 6%;
+    right: 13%;
+    font-size: x-large;
+    font-weight: bolder;
+    width: 30px;
+    height: 25px;
+    padding: 2.5px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 3px 3px 3px 0 #000000a0;
+}
+
+/* Tooltips */
+.tuc_tooltip {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tuc_tooltip_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 200px;
+}
+
+/* General Classes */
+.tuc_capitalize {
+    text-transform: capitalize;
+}
+
+.tuc_center {
+    text-align: center;
+}
+
+.tuc_collection {
+    min-height: 136.6px;
+    text-align: center;
+}
+
+.tuc_clickable {
+    cursor: pointer;
+}
+
+.tuc_header {
+    width: 95%;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bolder;
+    margin-top: -25px;
+    padding-left: 5px;
+    text-transform: uppercase;
+    border-radius: 0 0 30px 0;
+    display: inline-block;
+    box-shadow: 3px 3px 3px 0 #000000a0;
+}
+
+.tuc_hidden {
+    display: none !important;
+}
+
+.tuc_highlight {
+    border: 2px solid orangered;
+}
+
+.tuc_linenblock {
+    background-color: rgba(250, 240, 230, 0.3);
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border-radius: 20px;
+}
+
+.tuc_transparent {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+.tuc_zero_cards {
+    display: none !important;
+}
